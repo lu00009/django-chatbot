@@ -61,6 +61,16 @@
       display: flex;
       flex-direction: column;
     }
+    .custom-bg {
+      background-color: rgb(255, 248, 255) ;
+    }
+      .custom-btn {
+    background-color: rgb(33, 31, 31);
+    border-color:rgb(255, 248, 255) ; }
+    .custom-t{
+      background-color: rgb(255, 248, 255) ;
+      font-weight: bold;
+    }
   </style>
 {% endblock %}
 
@@ -68,17 +78,17 @@
 {% block content %}
 <div class="chat-container">
   <div class="card flex-grow-1">
-    <div class="card-header bg-primary text-white">Chat</div>
+    <div class="card-header custom-t text-white"><a style="color: rgb(4, 4, 4)">Chat</a></div>
     {% if user.is_authenticated %}
-    <div class="card-header bg-primary text-white"><b>Welcome, {{user.username}}</b>   <a style="color: yellow;" href="logout">Logout</a></div>
+    <div class="card-header custom-bg text-white"><b><a style="color: rgb(4, 4, 4)" >Welcome, {{user.username}}</a></b> <a style="color: rgb(4, 4, 4);" href="logout">Logout</a></div>
     {% else %}
-    <div class="card-header bg-primary text-white"><a style="color: yellow" href="login">Login</a>   <a style="color: yellow;" href="register">Register</a></div>
+    <div class="card-header custom-bg text-white"><a style="color: rgb(4, 4, 4)" href="login">Login</a> <a style="color: rgb(5, 5, 5);" href="register">Register</a></div>
     {% endif %}
     <div class="card-body messages-box">
       
       <ul class="list-unstyled messages-list">
         
-        <!-- <li class="message received">
+         <li class="message received">
           <div class="message-text">
             <div class="message-sender">
               <b>AI Chatbot</b>
@@ -87,7 +97,7 @@
               Hi {{user.username}}, I am your AI Chatbot, you can ask me anything.
             </div>
           </div>
-        </li> -->
+        </li> 
 
         {% for chat in chats %}
           {% if chat.user == request.user %}
@@ -129,7 +139,7 @@
     <div class="input-group">
       <input type="text" class="form-control message-input" placeholder="Type your message...">
       <div class="input-group-append">
-        <button type="submit" class="btn btn-primary btn-send">Send</button>
+        <button type="submit" class="btn custom-btn btn-send"><a style="color: rgb(253, 236, 236)">Send </a></button>
       </div>
     </div>
   </form>
